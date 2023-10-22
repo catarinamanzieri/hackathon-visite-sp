@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const PORT = 3000;
 
 const app = express();
 const server = require('http').createServer(app);
@@ -14,7 +15,7 @@ app.use('/', (req, res) => {
     res.render('index.html');
 });
 
-let mensagens = [];
+const mensagens = [];
 
 io.on('connection', socket => {
     console.log(`Socket conectado: ${socket.id}`);
@@ -27,4 +28,6 @@ io.on('connection', socket => {
     });
 });
 
-server.listen(3000);
+server.listen(PORT, () => {
+    console.log(`Running in http://localhost:${PORT}`);
+})

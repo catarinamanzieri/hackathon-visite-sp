@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    background: #f2f7f5
   }
   
   * {
@@ -7,7 +8,19 @@ html, body {
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+  #logo {
+    width: 190px;
+    height: 170px;
+    margin-left: 30px;
+  }
+
+  .secao-principal {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+
   #chat {
     height: 100%;
     display: flex;
@@ -20,26 +33,27 @@ html, body {
     width: 600px;
     border: 1px solid #ddd;
     height: 50px;
-    padding: 0 20px;
+    padding: 0 10px;
     font-size: 14px;
   }
   
   button {
-    width: 600px;
+    width: 100px;
     height: 50px;
     font-size: 14px;
-    background: #069;
+    background: rgb(38, 226, 63);
     text-align: center;
     line-height: 50px;
     font-weight: bold;
     color: #FFF;
     margin-top: 10px;
+    border-radius: 10px;
   }
   
   .messages {
     width: 600px;
-    height: 400px;
-    margin: 20px 0;
+    height: 250px;
+    margin: 10px 0;
     border: 1px solid #ddd;
     padding: 20px;
   }
