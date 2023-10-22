@@ -9,16 +9,29 @@ html, body {
     box-sizing: border-box;
   }
 
-  #logo {
+  #logo-spturis {
+    width: 160px;
+    height: 160px;
+    margin-left: 30px;
+    margin-top: 15px;
+  }
+
+  #logo-cadma {
     width: 190px;
     height: 170px;
-    margin-left: 30px;
   }
 
   .secao-principal {
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
+  }
+
+  #slogan-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 14pt;
   }
 
   #chat {
@@ -31,14 +44,14 @@ html, body {
   
   input {
     width: 600px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(126, 122, 122);
     height: 50px;
     padding: 0 10px;
     font-size: 14px;
   }
   
   button {
-    width: 100px;
+    width: 120px;
     height: 50px;
     font-size: 14px;
     background: rgb(38, 226, 63);
@@ -48,12 +61,14 @@ html, body {
     color: #FFF;
     margin-top: 10px;
     border-radius: 10px;
+    align-self: flex-end;
   }
   
   .messages {
     width: 600px;
     height: 250px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(126, 122, 122);
+    background: #FFF;
     padding: 20px;
   }
