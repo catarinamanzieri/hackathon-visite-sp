@@ -14,11 +14,14 @@ app.use('/', (req, res) => {
     res.render('index.html');
 });
 
+let mensagens = [];
+
 io.on('connection', socket => {
     console.log(`Socket conectado: ${socket.id}`)
 
-    socket.on('enviarMensagem', data => {
-        console.log(data);
+    socket.on('enviarMensagem', dados => {
+        mensagens.push(dados);
+        socket.broadcast.emit('mensagemRecebida', dados);
     });
 });
 

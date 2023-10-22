@@ -28,6 +28,14 @@
     <script type="text/javascript">
         const socket = io('http://localhost:3000'); 
 
+        function renderizarMensagem(mensagem) {
+            $('.messages').append('<div class="mensagem"><strong>'+ mensagem.usuario +'</strong>: '+ mensagem.mensagem +'</div>');
+        }
+
+        socket.on('mensagemRecebida', function(mensagem) {
+            renderizarMensagem(mensagem);
+        });
+
         $('#chat').submit(function (event) {
             event.preventDefault();
 
@@ -39,6 +47,8 @@
                     usuario: usuario,
                     mensagem: mensagem,
                 };
+
+                renderizarMensagem(mensagemObjeto);
 
                 socket.emit('enviarMensagem', mensagemObjeto)
             }
