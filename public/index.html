@@ -5,8 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fale com a CIT</title>
+    <link rel="stylesheet" href="style.css">
  </head>
  <body>
+    <form id="chat">
+        <input type="text" name="username" placeholder="Qual seu nome?">
+        <div class="messages"></div>
+        <input type="text" name="message" placeholder="Digite sua mensagem">
+        <button type="submit">Enviar</button>
+    </form>
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        const socket = io('http://localhost:3000'); 
+
+        $('#chat').submit(function (event) {
+            event.preventDefault();
+
+            let usuario = $('input[name=username]').val();
+            let mensagem = $('input[name=message]').val();
+
+            if (usuario.length && mensagem.length) {
+                let mensagemObjeto = {
+                    usuario: usuario,
+                    mensagem: mensagem,
+                };
+
+                socket.emit('enviarMensagem', mensagemObjeto)
+            }
+        });
+    </script>
+
+
+
     
  </body>
  </html>
