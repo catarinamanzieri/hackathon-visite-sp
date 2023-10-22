@@ -17,7 +17,9 @@ app.use('/', (req, res) => {
 let mensagens = [];
 
 io.on('connection', socket => {
-    console.log(`Socket conectado: ${socket.id}`)
+    console.log(`Socket conectado: ${socket.id}`);
+
+    socket.emit('mensagensAnteriores', mensagens);
 
     socket.on('enviarMensagem', dados => {
         mensagens.push(dados);

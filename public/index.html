@@ -32,6 +32,12 @@
             $('.messages').append('<div class="mensagem"><strong>'+ mensagem.usuario +'</strong>: '+ mensagem.mensagem +'</div>');
         }
 
+        socket.on('mensagensAnteriores', function(mensagens) {
+           for (mensagem of mensagens) {
+            renderizarMensagem(mensagem);
+           } 
+        });
+
         socket.on('mensagemRecebida', function(mensagem) {
             renderizarMensagem(mensagem);
         });
